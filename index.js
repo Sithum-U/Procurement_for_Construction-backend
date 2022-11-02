@@ -9,6 +9,7 @@ const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
+const cartItemsRoute = require("./routes/cartItems");
 
 // Read value from .env file
 dotenv.config();
@@ -33,6 +34,7 @@ app.use("/api/products",productRoute);
 app.use("/api/carts",cartRoute);
 app.use("/api/orders",orderRoute);
 app.use("/api/checkout",stripeRoute);
+app.use("/cartitems",cartItemsRoute);
 
 
 //Read PORT from .env file OR Default set 5002
