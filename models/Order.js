@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema(
         price: { type: Number, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'Product',
+          ref: "Product",
           required: true,
         },
       },
@@ -18,7 +18,7 @@ const orderSchema = new mongoose.Schema(
     shippingAddress: {
       customer_name: { type: String, required: true },
       street1: { type: String, required: true },
-      street2: { type: String},
+      street2: { type: String },
       city: { type: String, required: true },
       state: { type: String, required: true },
       zip: { type: String, required: true },
@@ -37,9 +37,10 @@ const orderSchema = new mongoose.Schema(
     shippingPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    seller: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    seller: { type: mongoose.Schema.Types.ObjectID, ref: "User" },
     isPaid: { type: Boolean, default: false },
+    isApproved: { type: Boolean, default: false },
     paidAt: { type: Date },
     isDelivered: { type: Boolean, default: false },
     deliveredAt: { type: Date },
@@ -49,5 +50,4 @@ const orderSchema = new mongoose.Schema(
   }
 );
 
-
-module.exports = mongoose.model("Order",orderSchema);
+module.exports = mongoose.model("Order", orderSchema);
