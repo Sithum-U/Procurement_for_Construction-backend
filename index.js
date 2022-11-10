@@ -16,11 +16,11 @@ dotenv.config();
 
 //MongoDB Connection
 mongoose.connect(process.env.DB_URL_DEVELOPMENT)
-.then(()=>{
-	console.log("DB Connection Successfully")
-}).catch((err)=>{
-	console.log(err)
-})
+	.then(() => {
+		console.log("DB Connection Successfully")
+	}).catch((err) => {
+		console.log(err)
+	})
 
 //Allow to call from different source
 app.use(cors());
@@ -28,18 +28,18 @@ app.use(cors());
 app.use(express.json());
 
 //Use routes
-app.use("/api/auth",authRoute);
-app.use("/api/users",userRoute);
-app.use("/api/products",productRoute);
-app.use("/api/carts",cartRoute);
-app.use("/api/orders",orderRoute);
-app.use("/api/checkout",stripeRoute);
-app.use("/cartitems",cartItemsRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/products", productRoute);
+app.use("/api/carts", cartRoute);
+app.use("/api/orders", orderRoute);
+app.use("/api/checkout", stripeRoute);
+app.use("/api/cartitems", cartItemsRoute);
 
 
 //Read PORT from .env file OR Default set 5002
 const API_PORT = process.env.API_PORT || 5002;
 
-app.listen(API_PORT,()=>{
+app.listen(API_PORT, () => {
 	console.log(`Backend Server is running on port ${API_PORT}`)
 })
